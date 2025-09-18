@@ -42,7 +42,7 @@ export default function Login() {
 
     try {
       const result = await signIn('credentials', {
-        email: form.email,
+        email: form.email.trim(),
         password: form.password,
         redirect: false,
       })

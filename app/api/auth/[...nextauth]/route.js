@@ -27,9 +27,10 @@ export const authOptions = {
           await connectDB();
           console.log('✅ MongoDB connected successfully');
           
-          console.log('🔍 Searching for user:', credentials.email);
+          const email = String(credentials.email).trim().toLowerCase();
+          console.log('🔍 Searching for user:', email);
           const user = await User.findOne({ 
-            email: credentials.email.toLowerCase(),
+            email,
             isActive: true 
           }).populate('department team');
 
